@@ -134,6 +134,12 @@ public class LoginManager : MonoBehaviour
         string ResponseType = (string)evt.Params["cmd"];
         Debug.Log("Received Response: " + ResponseType);
         ISFSObject ObjectIn = (SFSObject)evt.Params["params"];
+        if(ResponseType == "JoinGameLobby")
+        {
+            Debug.Log("Entering Game Lobby...");
+            SFServer.RemoveAllEventListeners();
+            SceneManager.LoadScene("GameLobby");
+        }
         if(ResponseType == "$SignUp.Submit")
         {
 
@@ -185,7 +191,7 @@ public class LoginManager : MonoBehaviour
         //If the player has actually logged in with a non-guest account. Notify server.
         if(!SFServer.MySelf.Name.StartsWith("Guest#"))
         {
-            SceneManager.LoadScene("GameLobby");
+            SFServer.Send(new ExtensionRequest("JoinGameLobby", new SFSObject()));
         }
     }
     private void OnLoginError(BaseEvent evt)
