@@ -91,4 +91,22 @@ public class GameLobbyManager : MonoBehaviour
     {
         return playerActionDictionary;
     }
+
+    public UIManager getUserInterface()
+    {
+        return ourUserInterface;
+    }
+
+    public GameObject createObject(string objectName)
+    {
+        return (GameObject)Instantiate(Resources.Load(objectName, typeof(GameObject)));
+    }
+    public void destroyObject(string objectName)
+    {
+        Destroy(GameObject.Find(objectName));
+    }
+    public void destroyObject(GameObject o)
+    {
+        Destroy(o);
+    }
 }
