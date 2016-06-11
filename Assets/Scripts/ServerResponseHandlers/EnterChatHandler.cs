@@ -35,8 +35,8 @@ namespace Assets.Scripts.ServerResponseHandlers
             //Update position of all chat messages
             for(int i = 0; i < chatTextList.Count; i++)
             {
-                chatTextList[i].rectTransform.offsetMin = new Vector2(9, -20 + (chatTextList.Count-i) * 20);
-                chatTextList[i].rectTransform.offsetMax = new Vector2(0, (chatTextList.Count-i) * 20);
+                chatTextList[i].rectTransform.offsetMin = new Vector2(9, -25 + (chatTextList.Count-i) * 20);
+                chatTextList[i].rectTransform.offsetMax = new Vector2(0, -5 + (chatTextList.Count-i) * 20);
             }
         }
     }

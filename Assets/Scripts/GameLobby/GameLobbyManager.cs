@@ -5,6 +5,7 @@ using Assets.Scripts.ServerResponseHandlers;
 using Sfs2X;
 using Sfs2X.Core;
 using Sfs2X.Entities.Data;
+using Sfs2X.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,12 @@ public class GameLobbyManager : MonoBehaviour
 
         //Setup server response handlers
         ourSRHDictionary.Add("EnterChat", new EnterChatHandler());
+        ourSRHDictionary.Add("PlayerConnected", new PlayerConnectedHandler());
+        ourSRHDictionary.Add("PlayerDisconnected", new PlayerDisconnectedHandler());
+        ourSRHDictionary.Add("OnlinePlayers", new OnlinePlayersHandler());
+
+        //Send a request to get the OnlinePlayers
+        SFServer.Send(new ExtensionRequest("OnlinePlayers", new SFSObject()));
     }
     void FixedUpdate()
     {
