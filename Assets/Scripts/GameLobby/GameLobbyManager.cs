@@ -19,6 +19,7 @@ public class GameLobbyManager : MonoBehaviour
     private SmartFox SFServer;
 
     private UIManager ourUserInterface;
+    private GameManager ourGameManager;
 
     private Dictionary<string, PlayerAction> playerActionDictionary = new Dictionary<string, PlayerAction>();
     private Dictionary<string, ServerResponseHandler> ourSRHDictionary = new Dictionary<string, ServerResponseHandler>();
@@ -40,6 +41,7 @@ public class GameLobbyManager : MonoBehaviour
 
         //Setup sub-managers
         ourUserInterface = new UIManager(this);
+        ourGameManager = new GameManager(this);
 
         //Setup player actions
         playerActionDictionary.Add("EnterChat", new EnterChatAction());
@@ -102,6 +104,10 @@ public class GameLobbyManager : MonoBehaviour
     public UIManager getUserInterface()
     {
         return ourUserInterface;
+    }
+    public GameManager getGameManager()
+    {
+        return ourGameManager;
     }
 
     public GameObject createObject(string objectName)

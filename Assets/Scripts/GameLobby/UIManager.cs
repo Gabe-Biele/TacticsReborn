@@ -22,7 +22,8 @@ namespace Assets.Scripts.GameLobby
             ourGLM = gLM;
 
             //Setup ButtonEventHandlers
-            buttonDictionary.Add((Button)GameObject.Find("PlayButton").GetComponent<Button>(), new PlayButtonHandler());
+            buttonDictionary.Add((Button)GameObject.Find("FindMatchButton").GetComponent<Button>(), new FindMatchButtonHandler());
+            buttonDictionary.Add((Button)GameObject.Find("SetFormationButton").GetComponent<Button>(), new SetFormationButtonHandler());
             buttonDictionary.Add((Button)GameObject.Find("EnterChatButton").GetComponent<Button>(), new EnterChatButtonHandler());
             
             chatTextLabel = new List<Text>();
@@ -49,7 +50,7 @@ namespace Assets.Scripts.GameLobby
                 onlinePlayerDictionary[playerName].rectTransform.SetParent(onlinePlayerBox.GetComponent<RectTransform>());
 
             }
-            //Update position of all  messages
+            //Update position of all PlayerNames
             int i = 0;
             foreach(string key in onlinePlayerDictionary.Keys)
             {

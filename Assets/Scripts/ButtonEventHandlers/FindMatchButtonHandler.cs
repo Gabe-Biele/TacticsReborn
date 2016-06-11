@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Assets.Scripts.ButtonEventHandlers
 {
-    class PlayButtonHandler : ButtonEventHandler
+    class FindMatchButtonHandler : ButtonEventHandler
     {
         public void performClickAction(GameLobbyManager ourGLM)
         {
-            
+            ourGLM.getGameManager().drawHexGrid(12);
         }
     }
 }
