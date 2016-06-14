@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,7 @@ namespace Assets.Scripts.GameLobby
                     GameObject aDumHex = ourGLM.createObject("hexagon");
                     aDumHex.transform.localPosition = new Vector3(xPos, 0, yPos);
                     aDumHex.transform.SetParent(GameObject.Find("HexGrid").transform);
+                    aDumHex.transform.GetChild(0).gameObject.AddComponent<HexTileController>();
                     aDumHex.name = "Hex " + x + "-" + y;
 
                     xPos += 1.73f;
