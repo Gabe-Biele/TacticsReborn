@@ -51,6 +51,7 @@ public class GameLobbyManager : MonoBehaviour
         ourSRHDictionary.Add("PlayerConnected", new PlayerConnectedHandler());
         ourSRHDictionary.Add("PlayerDisconnected", new PlayerDisconnectedHandler());
         ourSRHDictionary.Add("OnlinePlayers", new OnlinePlayersHandler());
+        ourSRHDictionary.Add("EditFormation", new EditFormationHandler());
 
         //Send a request to get the OnlinePlayers
         SFServer.Send(new ExtensionRequest("OnlinePlayers", new SFSObject()));

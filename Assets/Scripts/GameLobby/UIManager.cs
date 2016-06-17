@@ -23,7 +23,7 @@ namespace Assets.Scripts.GameLobby
 
             //Setup ButtonEventHandlers
             buttonDictionary.Add((Button)GameObject.Find("FindMatchButton").GetComponent<Button>(), new FindMatchButtonHandler());
-            buttonDictionary.Add((Button)GameObject.Find("SetFormationButton").GetComponent<Button>(), new SetFormationButtonHandler());
+            buttonDictionary.Add((Button)GameObject.Find("EditFormationButton").GetComponent<Button>(), new EditFormationButtonHandler());
             buttonDictionary.Add((Button)GameObject.Find("EnterChatButton").GetComponent<Button>(), new EnterChatButtonHandler());
             
             chatTextLabel = new List<Text>();
