@@ -15,7 +15,21 @@ namespace Assets.Scripts.GameLobby
         {
             ourGLM = gLM;
         }
+        public Vector3 getLocation(int x, int y)
+        {
+            //Setup x and y position variabes
+            float xPos = 0;
+            float yPos = 0;
 
+            //Calculate Basic Offsets
+            xPos = 1.73f * x;
+            yPos = 1.5f * y;
+
+            //Determine Row Shift
+            if(y % 2 != 0) xPos += 0.866f;
+
+            return new Vector3(xPos, 0, yPos);
+        }
         public void drawHexGrid(int maxHeight)
         {
 

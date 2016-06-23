@@ -1,15 +1,18 @@
-﻿using System;
+﻿using Sfs2X.Entities.Data;
+using Sfs2X.Requests;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.ButtonEventHandlers
 {
     class FindMatchButtonHandler : ButtonEventHandler
     {
-        public void performClickAction(GameLobbyManager ourGLM)
+        public void performClickAction(GameLobbyManager ourGLM, Button clickedButton)
         {
-            ourGLM.getGameManager().drawHexGrid(12);
+            ourGLM.getSFServer().Send(new ExtensionRequest("JoinQueue", new SFSObject()));
         }
     }
 }

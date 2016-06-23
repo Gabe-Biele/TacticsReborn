@@ -52,6 +52,9 @@ public class GameLobbyManager : MonoBehaviour
         ourSRHDictionary.Add("PlayerDisconnected", new PlayerDisconnectedHandler());
         ourSRHDictionary.Add("OnlinePlayers", new OnlinePlayersHandler());
         ourSRHDictionary.Add("EditFormation", new EditFormationHandler());
+        ourSRHDictionary.Add("GetFormation", new GetFormationHandler());
+        ourSRHDictionary.Add("NewGame", new NewGameHandler());
+        ourSRHDictionary.Add("SpawnUnit", new SpawnUnitHandler());
 
         //Send a request to get the OnlinePlayers
         SFServer.Send(new ExtensionRequest("OnlinePlayers", new SFSObject()));
@@ -89,7 +92,7 @@ public class GameLobbyManager : MonoBehaviour
 
     public void buttonClicked(Button clickedButton)
     {
-        ourUserInterface.getButtonDictionary()[clickedButton].performClickAction(this);
+        ourUserInterface.getButtonDictionary()[clickedButton].performClickAction(this, clickedButton);
     }
 
 
